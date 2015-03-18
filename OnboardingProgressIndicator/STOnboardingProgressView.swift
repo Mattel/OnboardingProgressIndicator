@@ -8,8 +8,8 @@
 
 import UIKit
 
-let kColorComplete      = UIColor(red: 0xF3/0xFF, green: 0xAB/0xFF, blue: 0x36/0xFF, alpha: 1.0) // #F3AB36
-let kColorIncomplete    = UIColor(white: 0xE3/0xFF, alpha: 1.0) // #E3E3E3
+let kColourComplete      = UIColor(red: 0xF3/0xFF, green: 0xAB/0xFF, blue: 0x36/0xFF, alpha: 1.0) // #F3AB36
+let kColourIncomplete    = UIColor(white: 0xE3/0xFF, alpha: 1.0) // #E3E3E3
 let kSeparatorWidth     = CGFloat(2.0)
 
 class STOnboardingProgressView: UIView {
@@ -24,9 +24,9 @@ class STOnboardingProgressView: UIView {
             for view in self.stepViews {
                 let index = find(stepViews, view)
                 if (index < Int(progress)) {
-                    view.backgroundColor = kColorComplete
+                    view.backgroundColor = kColourComplete
                 } else {
-                    view.backgroundColor = kColorIncomplete
+                    view.backgroundColor = kColourIncomplete
                 }
             }
         }
@@ -49,7 +49,7 @@ class STOnboardingProgressView: UIView {
             let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
             let x = (width + kSeparatorWidth) * CGFloat(index)
             view.frame = CGRectMake(x, 0, width, frame.size.height)
-            view.backgroundColor = kColorIncomplete
+            view.backgroundColor = kColourIncomplete
             self.addSubview(view)
         }
     }
