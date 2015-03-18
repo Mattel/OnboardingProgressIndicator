@@ -8,22 +8,18 @@
 
 import UIKit
 
-let progressViewFrame = CGRectMake(20, 50, 335, 20)
-let defaultNumberOfSteps = UInt(4)
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var numberOfStepsStepper: UIStepper!
+    @IBOutlet weak var progressView: STOnboardingProgressView!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    var progressView = STOnboardingProgressView(steps: defaultNumberOfSteps, frame: progressViewFrame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberOfStepsStepper.value = Double(defaultNumberOfSteps)
+        numberOfStepsStepper.value = Double(progressView.numberOfSteps)
     }
     
     override func viewDidAppear(animated: Bool) {

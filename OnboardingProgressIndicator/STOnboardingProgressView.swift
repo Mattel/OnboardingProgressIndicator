@@ -20,7 +20,6 @@ class STOnboardingProgressView: UIView {
         didSet {
             progress = 0
             setupStepViews()
-            setNeedsUpdateConstraints()
         }
     }
     
@@ -48,14 +47,15 @@ class STOnboardingProgressView: UIView {
     }
     
     convenience init(steps: UInt, frame: CGRect) {
-        
         self.init(frame: frame)
         numberOfSteps = steps
         setupStepViews()
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        numberOfSteps = kDefaultNumberOfSteps
+        super.init(coder: aDecoder)
+        setupStepViews()
     }
     
     override func awakeFromNib() {
@@ -64,9 +64,17 @@ class STOnboardingProgressView: UIView {
     
     override func updateConstraints() {
         
-        super.updateConstraints()
+        if (isEmpty(stepViews)) {
+            super.updateConstraints()
+            return
+        }
+            
+        superview!.layoutIfNeeded()
+        let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
         
+        println(stepViews.count)
         for view in stepViews {
+            view.removeConstraints(view.constraints())
             
             self.addSubview(view)
             view.backgroundColor = kColourIncomplete
@@ -81,15 +89,14 @@ class STOnboardingProgressView: UIView {
             }
             
             let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 0.0)
-            
-            let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
             let widthConstraint = NSLayoutConstraint(item: view, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: width)
-            
             let heightConstraint = NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: frame.height)
             
             view.setTranslatesAutoresizingMaskIntoConstraints(false)
             self.addConstraints([leftConstraint, topConstraint, widthConstraint, heightConstraint])
         }
+        
+        super.updateConstraints()
     }
     
     private func setupStepViews() {
@@ -103,5 +110,7 @@ class STOnboardingProgressView: UIView {
         for var i = UInt(0); i < numberOfSteps; i++ {
             stepViews.append(UIView())
         }
+        
+        setNeedsUpdateConstraints()
     }
 }
