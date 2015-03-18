@@ -8,22 +8,25 @@
 
 import UIKit
 
+let progressViewFrame = CGRectMake(20, 50, 335, 20)
+let defaultNumberOfSteps = UInt(4)
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var numberOfStepsStepper: UIStepper!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    var progressView = STOnboardingProgressView(frame: CGRectMake(20, 50, 335, 20))
+    var progressView = STOnboardingProgressView(steps: defaultNumberOfSteps, frame: progressViewFrame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        numberOfStepsStepper.value = Double(defaultNumberOfSteps)
     }
     
     override func viewDidAppear(animated: Bool) {
-//        self.progressView = STOnboardingProgressView(frame: CGRectMake(20, 50, 335, 20))
-        self.progressView.backgroundColor = UIColor.blueColor()
         self.view.addSubview(progressView)
         super.viewDidAppear(animated)
     }
@@ -56,5 +59,10 @@ class ViewController: UIViewController {
     @IBAction func set5(sender: UIButton) {
         self.progressView.progress = 5
     }
+    
+    @IBAction func updateNumberOfSteps(sender: UIStepper) {
+        progressView.numberOfSteps = UInt(sender.value);
+    }
+
 }
 

@@ -70,9 +70,18 @@
                                     <action selector="set5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Jh-0D-8za"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-Ih-o62">
+                                <rect key="frame" x="16" y="180" width="94" height="29"/>
+                                <connections>
+                                    <action selector="updateNumberOfSteps:" destination="BYZ-38-t0r" eventType="valueChanged" id="rrB-ux-k3V"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="numberOfStepsStepper" destination="Lbe-Ih-o62" id="iM9-B4-KS1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
