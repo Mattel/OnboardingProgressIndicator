@@ -41,6 +41,10 @@ class ViewController: UIViewController {
         self.view.addSubview(progressView)
         numberOfStepsLabel.text = "Number of steps: \(UInt(numberOfStepsStepper.value))"
         progressLabel.text = "Progress: \(UInt(progressStepper.value))"
+        
+        let programmaticProgressView = STOnboardingProgressView(steps: 4, frame: CGRectMake(20, 300, 200, 18))
+        view.addSubview(programmaticProgressView)
+        
         super.viewWillAppear(animated)
     }
 

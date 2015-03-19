@@ -16,10 +16,11 @@ let kDefaultNumberOfSteps   = UInt(5)
 class STOnboardingProgressView: UIView {
     
     private var stepViews: [UIView]! = []
+    private var stepViewConstraints = NSMutableSet()
     
     dynamic var numberOfSteps: UInt {
         didSet {
-            progress = 0
+            progress = min(progress, numberOfSteps)
             setupStepViews()
         }
     }
@@ -31,12 +32,8 @@ class STOnboardingProgressView: UIView {
             }
             
             for view in self.stepViews {
-                let index = find(stepViews, view)
-                if (index < Int(progress)) {
-                    view.backgroundColor = kColourComplete
-                } else {
-                    view.backgroundColor = kColourIncomplete
-                }
+                let index = find(stepViews, view)!
+                configureColourForStepView(view, index: index)
             }
         }
     }
@@ -44,6 +41,7 @@ class STOnboardingProgressView: UIView {
     override init(frame: CGRect) {
         numberOfSteps = kDefaultNumberOfSteps
         super.init(frame: frame)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setNeedsUpdateConstraints", name: UIDeviceOrientationDidChangeNotification, object: nil)
         setupStepViews()
     }
     
@@ -52,10 +50,11 @@ class STOnboardingProgressView: UIView {
         numberOfSteps = steps
         setupStepViews()
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         numberOfSteps = kDefaultNumberOfSteps
         super.init(coder: aDecoder)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setNeedsUpdateConstraints", name: UIDeviceOrientationDidChangeNotification, object: nil)
         setupStepViews()
     }
     
@@ -70,13 +69,20 @@ class STOnboardingProgressView: UIView {
         layoutIfNeeded()
         let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
         
+        let currentConstraints = constraints() as [NSLayoutConstraint]
+        for constraint in currentConstraints {
+            if (stepViewConstraints.containsObject(constraint)) {
+                removeConstraint(constraint)
+            }
+        }
+        
         for view in stepViews {
             view.removeConstraints(view.constraints())
             
             self.addSubview(view)
-            view.backgroundColor = kColourIncomplete
             
-            let index = UInt(find(stepViews, view)!)
+            let index = find(stepViews, view)!
+            configureColourForStepView(view, index: index)
             
             var leftConstraint: NSLayoutConstraint
             if (index != 0) {
@@ -90,7 +96,9 @@ class STOnboardingProgressView: UIView {
             let heightConstraint = NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: frame.height)
             
             view.setTranslatesAutoresizingMaskIntoConstraints(false)
-            self.addConstraints([leftConstraint, topConstraint, widthConstraint, heightConstraint])
+            let newConstraints = [leftConstraint, topConstraint, widthConstraint, heightConstraint]
+            self.addConstraints(newConstraints)
+            stepViewConstraints.addObjectsFromArray(newConstraints)
         }
         
         super.updateConstraints()
@@ -109,5 +117,13 @@ class STOnboardingProgressView: UIView {
         }
         
         setNeedsUpdateConstraints()
+    }
+    
+    private func configureColourForStepView(view :UIView, index: Int) {
+        if (index < Int(progress)) {
+            view.backgroundColor = kColourComplete
+        } else {
+            view.backgroundColor = kColourIncomplete
+        }
     }
 }

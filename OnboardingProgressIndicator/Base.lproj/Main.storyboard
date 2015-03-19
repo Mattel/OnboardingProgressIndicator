@@ -27,9 +27,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29H-pe-3gI" customClass="STOnboardingProgressView" customModule="OnboardingProgressIndicator" customModuleProvider="target">
-                                <rect key="frame" x="16" y="100" width="568" height="22"/>
+                                <rect key="frame" x="16" y="100" width="568" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="ipw-Sj-pkH"/>
+                                    <constraint firstAttribute="height" constant="18" id="ipw-Sj-pkH"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="numberOfSteps">
@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDT-y8-GjZ">
-                                <rect key="frame" x="16" y="144" width="568" height="100"/>
+                                <rect key="frame" x="16" y="140" width="568" height="100"/>
                                 <subviews>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-Ih-o62">
                                         <rect key="frame" x="8" y="8" width="94" height="29"/>
