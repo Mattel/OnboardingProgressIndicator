@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     private var myContext = 0
     
     required init(coder aDecoder: NSCoder) {
+        STOnboardingProgressView.appearance().tintColor = kColourComplete
         super.init(coder: aDecoder)
     }
 

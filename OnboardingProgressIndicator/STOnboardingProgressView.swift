@@ -121,7 +121,7 @@ class STOnboardingProgressView: UIView {
     
     private func configureColourForStepView(view :UIView, index: Int) {
         if (index < Int(progress)) {
-            view.backgroundColor = kColourComplete
+            view.backgroundColor = tintColor
         } else {
             view.backgroundColor = kColourIncomplete
         }
