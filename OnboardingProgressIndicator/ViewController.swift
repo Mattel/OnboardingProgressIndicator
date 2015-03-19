@@ -37,9 +37,11 @@ class ViewController: UIViewController {
         progressView.removeObserver(self, forKeyPath: kKeyPathProgress)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         self.view.addSubview(progressView)
-        super.viewDidAppear(animated)
+        numberOfStepsLabel.text = "Number of steps: \(UInt(numberOfStepsStepper.value))"
+        progressLabel.text = "Progress: \(UInt(progressStepper.value))"
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
