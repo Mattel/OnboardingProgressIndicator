@@ -40,66 +40,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDT-y8-GjZ">
                                 <rect key="frame" x="16" y="144" width="568" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-4W-yaf">
-                                        <rect key="frame" x="8" y="8" width="30" height="30"/>
-                                        <state key="normal" title="0">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cke-Ud-d1t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-ur-Mop">
-                                        <rect key="frame" x="62" y="8" width="30" height="30"/>
-                                        <state key="normal" title="1">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="noC-tx-Dfz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mW-J2-bMb">
-                                        <rect key="frame" x="116" y="8" width="30" height="30"/>
-                                        <state key="normal" title="2">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKv-TJ-rAF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-5f-Rab">
-                                        <rect key="frame" x="170" y="8" width="30" height="30"/>
-                                        <state key="normal" title="3">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="210-ao-0z2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9K-GM-Uzs">
-                                        <rect key="frame" x="224" y="8" width="30" height="30"/>
-                                        <state key="normal" title="4">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFV-fc-vhg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ou-Wt-GS4">
-                                        <rect key="frame" x="278" y="8" width="30" height="30"/>
-                                        <state key="normal" title="5">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="set5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Jh-0D-8za"/>
-                                        </connections>
-                                    </button>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-Ih-o62">
-                                        <rect key="frame" x="8" y="46" width="94" height="29"/>
+                                        <rect key="frame" x="8" y="8" width="94" height="29"/>
                                         <connections>
                                             <action selector="updateNumberOfSteps:" destination="BYZ-38-t0r" eventType="valueChanged" id="rrB-ux-k3V"/>
                                         </connections>
                                     </stepper>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="VJo-1L-11U">
+                                        <rect key="frame" x="8" y="45" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="updateProgress:" destination="BYZ-38-t0r" eventType="valueChanged" id="AnG-Fb-glY"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of steps:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGH-tu-ZPk">
+                                        <rect key="frame" x="129" y="12" width="190" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Progress:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eU-cm-0XG">
+                                        <rect key="frame" x="129" y="49" width="190" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -122,7 +86,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="numberOfStepsLabel" destination="cGH-tu-ZPk" id="nEU-8J-7Am"/>
                         <outlet property="numberOfStepsStepper" destination="Lbe-Ih-o62" id="iM9-B4-KS1"/>
+                        <outlet property="progressLabel" destination="1eU-cm-0XG" id="Cao-mt-HBE"/>
+                        <outlet property="progressStepper" destination="VJo-1L-11U" id="MSH-h4-GYv"/>
                         <outlet property="progressView" destination="29H-pe-3gI" id="191-8o-8YK"/>
                     </connections>
                 </viewController>

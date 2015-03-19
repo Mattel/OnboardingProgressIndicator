@@ -16,14 +16,15 @@ let kDefaultNumberOfSteps   = UInt(5)
 class STOnboardingProgressView: UIView {
     
     private var stepViews: [UIView]! = []
-    var numberOfSteps: UInt {
+    
+    dynamic var numberOfSteps: UInt {
         didSet {
             progress = 0
             setupStepViews()
         }
     }
     
-    var progress: UInt = 0 {
+    dynamic var progress: UInt = 0 {
         didSet {
             if (progress > numberOfSteps) {
                 progress = numberOfSteps
@@ -58,10 +59,6 @@ class STOnboardingProgressView: UIView {
         setupStepViews()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func updateConstraints() {
         
         if (isEmpty(stepViews)) {
@@ -70,6 +67,7 @@ class STOnboardingProgressView: UIView {
         }
             
         superview!.layoutIfNeeded()
+        layoutIfNeeded()
         let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
         
         println(stepViews.count)

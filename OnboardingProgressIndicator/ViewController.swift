@@ -8,10 +8,18 @@
 
 import UIKit
 
+let kKeyPathNumberOfSteps = "numberOfSteps"
+let kKeyPathProgress = "progress"
+
 class ViewController: UIViewController {
 
-    @IBOutlet weak var numberOfStepsStepper: UIStepper!
     @IBOutlet weak var progressView: STOnboardingProgressView!
+    @IBOutlet weak var numberOfStepsStepper: UIStepper!
+    @IBOutlet weak var progressStepper: UIStepper!
+    @IBOutlet weak var numberOfStepsLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    
+    private var myContext = 0
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,6 +28,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         numberOfStepsStepper.value = Double(progressView.numberOfSteps)
+        progressView.addObserver(self, forKeyPath: kKeyPathNumberOfSteps, options: .New, context: &myContext)
+        progressView.addObserver(self, forKeyPath: kKeyPathProgress, options: .New, context: &myContext)
+    }
+    
+    deinit {
+        progressView.removeObserver(self, forKeyPath: kKeyPathNumberOfSteps)
+        progressView.removeObserver(self, forKeyPath: kKeyPathProgress)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -31,34 +46,31 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func set0(sender: UIButton) {
-        self.progressView.progress = 0
-    }
-
-    @IBAction func set1(sender: UIButton) {
-        self.progressView.progress = 1
-    }
     
-    @IBAction func set2(sender: UIButton) {
-        self.progressView.progress = 2
-    }
-    
-    @IBAction func set3(sender: UIButton) {
-        self.progressView.progress = 3
-    }
-    
-    @IBAction func set4(sender: UIButton) {
-        self.progressView.progress = 4
-    }
-    
-    @IBAction func set5(sender: UIButton) {
-        self.progressView.progress = 5
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        
+        if (context == &myContext) {
+            switch keyPath {
+            case kKeyPathNumberOfSteps:
+                numberOfStepsStepper.value = change[NSKeyValueChangeNewKey] as Double
+                numberOfStepsLabel.text = "Number of steps: \(UInt(numberOfStepsStepper.value))"
+            case kKeyPathProgress:
+                progressStepper.value = change[NSKeyValueChangeNewKey] as Double
+                progressLabel.text = "Progress: \(UInt(progressStepper.value))"
+            default:
+                ()
+            }
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
     }
     
     @IBAction func updateNumberOfSteps(sender: UIStepper) {
         progressView.numberOfSteps = UInt(sender.value);
     }
 
+    @IBAction func updateProgress(sender: UIStepper) {
+        progressView.progress = UInt(sender.value);
+    }
 }
 
