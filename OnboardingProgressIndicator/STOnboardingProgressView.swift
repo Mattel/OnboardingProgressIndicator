@@ -69,7 +69,7 @@ class STOnboardingProgressView: UIView {
         layoutIfNeeded()
         let width = (frame.width - (kSeparatorWidth * CGFloat(numberOfSteps - 1))) / CGFloat(numberOfSteps)
         
-        let currentConstraints = constraints() as [NSLayoutConstraint]
+        let currentConstraints = constraints() as! [NSLayoutConstraint]
         for constraint in currentConstraints {
             if (stepViewConstraints.containsObject(constraint)) {
                 removeConstraint(constraint)

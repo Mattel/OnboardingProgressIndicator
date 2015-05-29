@@ -59,10 +59,10 @@ class ViewController: UIViewController {
         if (context == &myContext) {
             switch keyPath {
             case kKeyPathNumberOfSteps:
-                numberOfStepsStepper.value = change[NSKeyValueChangeNewKey] as Double
+                numberOfStepsStepper.value = change[NSKeyValueChangeNewKey] as! Double
                 numberOfStepsLabel.text = "Number of steps: \(UInt(numberOfStepsStepper.value))"
             case kKeyPathProgress:
-                progressStepper.value = change[NSKeyValueChangeNewKey] as Double
+                progressStepper.value = change[NSKeyValueChangeNewKey] as! Double
                 progressLabel.text = "Progress: \(UInt(progressStepper.value))"
             default:
                 ()
@@ -80,4 +80,3 @@ class ViewController: UIViewController {
         progressView.progress = UInt(sender.value);
     }
 }
-
