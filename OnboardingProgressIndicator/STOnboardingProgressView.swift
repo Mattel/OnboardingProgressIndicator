@@ -64,6 +64,11 @@ class STOnboardingProgressView: UIView {
             super.updateConstraints()
             return
         }
+        
+        if (self.frame.size.width == 0.0) {
+            super.updateConstraints()
+            return
+        }
             
         superview!.layoutIfNeeded()
         layoutIfNeeded()

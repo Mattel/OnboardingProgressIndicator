@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.authors   = { 'Camille Kander' => 'camille@sproutling.com' }
   s.source    = { :git => 'https://github.com/Sproutling/OnboardingProgressIndicator.git', :tag => s.version.to_s }
   s.license      = { :type => 'No License', :file => 'LICENSE' }
-  s.source_files = 'OnboardingProgressIndicator/{STOnboardingProgressView.swift,LICENSE}'
+  s.source_files = 'OnboardingProgressIndicator/{STOnboardingProgressView.swift,STProgressNavigationController.swift,LICENSE}'
   s.requires_arc = true
 end

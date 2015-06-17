@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88075B271B30FF5C00AB800A /* TableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88075B261B30FF5C00AB800A /* TableViewController1.swift */; };
+		88075B291B30FF6800AB800A /* TableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88075B281B30FF6800AB800A /* TableViewController2.swift */; };
+		88075B2B1B30FF7200AB800A /* TableViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88075B2A1B30FF7200AB800A /* TableViewController3.swift */; };
+		886A01DA1B2904BC0060CFD1 /* STProgressNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886A01D91B2904BC0060CFD1 /* STProgressNavigationController.swift */; };
 		88FC1CC91AB9DEB300E1273E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC1CC81AB9DEB300E1273E /* AppDelegate.swift */; };
 		88FC1CCB1AB9DEB300E1273E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC1CCA1AB9DEB300E1273E /* ViewController.swift */; };
 		88FC1CCE1AB9DEB300E1273E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FC1CCC1AB9DEB300E1273E /* Main.storyboard */; };
@@ -27,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88075B241B30FE8F00AB800A /* STOnboardingProgressView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = STOnboardingProgressView.podspec; sourceTree = "<group>"; };
+		88075B261B30FF5C00AB800A /* TableViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController1.swift; sourceTree = "<group>"; };
+		88075B281B30FF6800AB800A /* TableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController2.swift; sourceTree = "<group>"; };
+		88075B2A1B30FF7200AB800A /* TableViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController3.swift; sourceTree = "<group>"; };
+		886A01D91B2904BC0060CFD1 /* STProgressNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProgressNavigationController.swift; sourceTree = "<group>"; };
 		88FC1CC31AB9DEB300E1273E /* OnboardingProgressIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingProgressIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FC1CC71AB9DEB300E1273E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88FC1CC81AB9DEB300E1273E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,9 +67,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88075B251B30FF3400AB800A /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				88075B261B30FF5C00AB800A /* TableViewController1.swift */,
+				88075B281B30FF6800AB800A /* TableViewController2.swift */,
+				88075B2A1B30FF7200AB800A /* TableViewController3.swift */,
+			);
+			name = Flow;
+			sourceTree = "<group>";
+		};
 		88FC1CBA1AB9DEB300E1273E = {
 			isa = PBXGroup;
 			children = (
+				88075B241B30FE8F00AB800A /* STOnboardingProgressView.podspec */,
 				88FC1CC51AB9DEB300E1273E /* OnboardingProgressIndicator */,
 				88FC1CDB1AB9DEB300E1273E /* OnboardingProgressIndicatorTests */,
 				88FC1CC41AB9DEB300E1273E /* Products */,
@@ -81,6 +101,7 @@
 			children = (
 				88FC1CC81AB9DEB300E1273E /* AppDelegate.swift */,
 				88FC1CCA1AB9DEB300E1273E /* ViewController.swift */,
+				88075B251B30FF3400AB800A /* Flow */,
 				88FC1CE81AB9DEC500E1273E /* STOnboardingProgressIndicator */,
 				88FC1CCC1AB9DEB300E1273E /* Main.storyboard */,
 				88FC1CCF1AB9DEB300E1273E /* Images.xcassets */,
@@ -119,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				88FC1CE91AB9E05A00E1273E /* STOnboardingProgressView.swift */,
+				886A01D91B2904BC0060CFD1 /* STProgressNavigationController.swift */,
 			);
 			name = STOnboardingProgressIndicator;
 			sourceTree = "<group>";
@@ -224,7 +246,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FC1CEA1AB9E05A00E1273E /* STOnboardingProgressView.swift in Sources */,
+				88075B2B1B30FF7200AB800A /* TableViewController3.swift in Sources */,
 				88FC1CCB1AB9DEB300E1273E /* ViewController.swift in Sources */,
+				88075B291B30FF6800AB800A /* TableViewController2.swift in Sources */,
+				88075B271B30FF5C00AB800A /* TableViewController1.swift in Sources */,
+				886A01DA1B2904BC0060CFD1 /* STProgressNavigationController.swift in Sources */,
 				88FC1CC91AB9DEB300E1273E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +445,7 @@
 				88FC1CE41AB9DEB300E1273E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88FC1CE51AB9DEB300E1273E /* Build configuration list for PBXNativeTarget "OnboardingProgressIndicatorTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +454,7 @@
 				88FC1CE71AB9DEB300E1273E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
